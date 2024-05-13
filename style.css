@@ -1,0 +1,9 @@
+.letter-grid {
+    width: 300px;
+    .col div{
+        height: 50px;
+        width: 50px;
+    }
+    
+}
+
