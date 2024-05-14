@@ -1,9 +1,64 @@
+h1 {
+    font-weight: bolder;
+    text-align: center;
+    font-family:Georgia, 'Times New Roman', Times, sans-serif;
+    transform: scale(.7, 1);
+    margin-left: calc(50% - 56px);
+    /* look up font lesson to add little lines to the top and bottom of letters */
+}
+
+.question-mark {
+    border: none;
+    background-color: #ffffff;
+    margin-left: auto;
+}
+
+.content-positioning {
+    width: 500px;
+    margin: 0 auto
+}
+
 .letter-grid {
     width: 300px;
     .col div{
         height: 50px;
         width: 50px;
     }
+
+}
+
+.virtual-keyboard {
+    width: 440px;
+    margin: 0 auto;
+    
+
+    .key {
+        width: 40px;
+    
+    }
+
+    .delete-key {
+        width: 105px
+    }
+
+    .key, .delete-key {
+        height: 60px;
+        border: none;
+        border-radius: 5px;
+        font-weight: bolder;
+        background-color: #d4d6da;
+
+    }
+    .second-row {
+        padding-left: 15px;
+    }
+
+    .third-row {
+        padding-left: 6px
+    }
+
+
     
 }
+
 
