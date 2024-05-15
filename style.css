@@ -3,7 +3,7 @@ h1 {
     text-align: center;
     font-family:Georgia, 'Times New Roman', Times, sans-serif;
     transform: scale(.7, 1);
-    margin-left: calc(50% - 56px);
+    margin-left: calc(50% - 60px);
     /* look up font lesson to add little lines to the top and bottom of letters */
 }
 
@@ -56,9 +56,14 @@ h1 {
     .third-row {
         padding-left: 6px
     }
-
-
-    
+ 
 }
 
+.popup {
+    display: block;
+    position: absolute;
+    top: 60px;
+    width: 450px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
