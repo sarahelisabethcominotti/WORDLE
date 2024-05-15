@@ -21,7 +21,8 @@
               <h1>Wordle</h1>
               
               <!-- Question mark button -->
-              <button class="question-mark">
+              <div id="liveAlertPlaceholder"></div>
+              <button type="button" class="question-mark" id="open-popup">
               <svg height="30px" width="30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 302.967 360.967" xml:space="preserve">
                 <g>
                   <g>
@@ -46,6 +47,22 @@
                 </g>
               </svg>
               </button>
+              <!-- pop up content -->
+              <div class="alert alert-light alert-dismissible fade show popup" id="popup" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" id="close-popup" onclick="closePopup()"></button>
+                <h4 class="alert-heading mt-5">How To Play</h4>
+                <p>Guess the Wordle in 6 tries.</p>
+                <ul>
+                  <li>
+                    <p>Each guess must be a valid 5-letter word.</p>
+                  </li>
+                  <li>
+                    <p>The color of the tiles will change to show how close tour guess was to the word</p>
+                  </li>
+                </ul>
+                <hr>
+                <p class="mb-0">A new puzzle is released daily at midnight.</p>      
+              </div>
               
             </div>
             
@@ -205,6 +222,10 @@
       </div>
     </main>
     </body>
+
+    <aside>
+      
+    </aside>
     <footer>
 
     </footer>
