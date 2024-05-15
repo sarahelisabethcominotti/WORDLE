@@ -23,3 +23,19 @@ function load() {
         btn.value = array[i];
     }
 }
+
+
+
+
+
+
+// const popup = () => {
+//     document.getElementById("popup").style.display = `block`
+// }
+
+
+// popupButton.addEventListener("click", popup);
+
+// function openPopup() {
+//     document.getElementById('popup').style.display = 'block';
+// }
