@@ -43,14 +43,23 @@ function load() {
 
 //KEYBOARD - Assigning event listners to the buttons (elements)
 
-// let row = 1;
-// let letter = 1;
 
-const buttonElements = document.querySelectorAll('button');
+
+const buttonElements = document.querySelectorAll('#button');
+
+let row = 1;
+let letter = 1;
+
+const wordElements = document.querySelectorAll('.col');
 
 buttonElements.forEach((element) => {
-    element.addEventListner('click', pressKey(element.attributes["btn-primary"].value));
+    element.addEventListener('click', pressKey(element.attributes["btn-primary id"].value));
+    
 });
+
+function populateWord() {
+    console.log(wordElements)
+}
 
 function pressKey(key) {
     if (key.toLowerCase() === 'enter') {
@@ -60,5 +69,7 @@ function pressKey(key) {
 }   else{
     populateWord(key)
 }
+
 }
-// console.log(key)
+
+// console.log(buttonElements);
