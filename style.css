@@ -117,7 +117,7 @@ h1 {
 
 /* POP-UP CSS */
 .popup {
-    display: block;
+    display: none;
     position: absolute;
     top: 60px;
     width: 450px;
