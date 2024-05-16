@@ -1,3 +1,6 @@
+
+//Addition of notes to make pop-up work
+
 function input(i) {
     var tbInput = document.getElementById(`tbInput`)
     tbInput.value = tbInput.value + i.value
@@ -26,9 +29,6 @@ function load() {
 
 
 
-
-
-
 // const popup = () => {
 //     document.getElementById("popup").style.display = `block`
 // }
@@ -39,3 +39,26 @@ function load() {
 // function openPopup() {
 //     document.getElementById('popup').style.display = 'block';
 // }
+
+
+//KEYBOARD - Assigning event listners to the buttons (elements)
+
+// let row = 1;
+// let letter = 1;
+
+const buttonElements = document.querySelectorAll('button');
+
+buttonElements.forEach((element) => {
+    element.addEventListner('click', pressKey(element.attributes["btn-primary"].value));
+});
+
+function pressKey(key) {
+    if (key.toLowerCase() === 'enter') {
+    enterWord();
+}   else if (key.toLowerCase() === 'backspace') {
+    removeLetter();
+}   else{
+    populateWord(key)
+}
+}
+// console.log(key)
