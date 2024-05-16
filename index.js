@@ -29,16 +29,21 @@ function load() {
 
 
 
-// const popup = () => {
-//     document.getElementById("popup").style.display = `block`
-// }
+// POP UP FUNCTIONS
+var openPopup = document.getElementById("open-popup");
+var popupWindow = document.getElementById("popup");
+var closeButton = document.getElementById("close-popup");
 
+// open popup
+openPopup.addEventListener("click", function(event) {
+    event.preventDefault();
+    popupWindow.style.display = "block";
+});
 
-// popupButton.addEventListener("click", popup);
-
-// function openPopup() {
-//     document.getElementById('popup').style.display = 'block';
-// }
+// close popup
+closeButton.addEventListener("click", function() {
+  popupWindow.style.display = "none";
+});
 
 
 //KEYBOARD - Assigning event listners to the buttons (elements)
