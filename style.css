@@ -19,8 +19,8 @@ h1 {
 }
 
 .letter-grid {
-    width: 500px;
-    height: 80px;
+    width: 450px;
+    height: 75px;
     .col div{
         /* height: 50px;
         width: 50px; */ 
@@ -37,7 +37,7 @@ h1 {
 }
 
 .keyboard-container {
-    margin-top: 7%;
+    margin-top: 3%;
     display: flex;
     flex-direction: column;
     align-items: center;
