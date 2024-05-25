@@ -11,6 +11,33 @@ h1 {
     font-family: 'Ubuntu+Mono'
 } */
 
+
+
+.inactive-cell-border {
+    border: #d3d6da 1px solid
+
+}
+
+.active-cell-border {
+    border: #000000 2px solid
+}
+
+.correct-cell {
+    color: #ffffff;
+    background-color: #62d362
+}
+
+.correct-letter {
+    color:#ffffff;
+    background-color: #e3e365
+
+}
+
+.wrong-cell {
+    color: #ffffff;
+    background-color: #D3D6DA
+}
+
 .question-mark {
     border: none;
     background-color: #ffffff;
@@ -124,4 +151,3 @@ h1 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     z-index:1;
 }
-
