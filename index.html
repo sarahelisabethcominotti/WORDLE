@@ -10,62 +10,128 @@
     <title>Wordle</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="styles.css" rel="stylesheet">
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        
+        <link href="styles.css" rel="stylesheet">
+        
+    <script src="index.js" type="module"></script>
 </head>
 
 <body>
     <header>
         <nav class="navbar container">
             <div class="container-fluid justify-content-center border-bottom">
-              
-              <h1>Wordle</h1>
-              
-              <!-- Question mark button -->
-              <div id="liveAlertPlaceholder"></div>
-              <button type="button" class="question-mark" id="open-popup">
-              <svg height="30px" width="30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 302.967 360.967" xml:space="preserve">
-                <g>
-                  <g>
-                    <g>
-                      <path style="fill:#010002;" d="M151.483,302.967C67.956,302.967,0,235.017,0,151.483S67.956,0,151.483,0 s151.483,67.956,151.483,151.483S235.017,302.967,151.483,302.967z M151.483,24.416c-70.066,0-127.067,57.001-127.067,127.067 s57.001,127.067,127.067,127.067s127.067-57.001,127.067-127.067S221.555,24.416,151.483,24.416z"/>
-                    </g>
-                    <g>
+                <h1>Wordle</h1>
+                <!-- Question mark button -->
+                <div id="liveAlertPlaceholder">
+                </div>
+                <button type="button" class="question-mark" id="open-popup">
+                    <svg height="30px" width="30px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 302.967 360.967" xml:space="preserve">
                       <g>
-                        <path style="fill:#010002;" d="M116.586,118.12c1.795-4.607,4.297-8.588,7.511-11.961c3.225-3.389,7.114-6.016,11.667-7.898
-      c4.547-1.904,9.633-2.845,15.262-2.845c7.261,0,13.32,0.995,18.183,2.997c4.857,1.996,8.768,4.482,11.738,7.441
-      c2.964,2.97,5.091,6.168,6.369,9.584c1.273,3.432,1.915,6.636,1.915,9.595c0,4.901-0.642,8.947-1.915,12.118
-      c-1.278,3.171-2.866,5.88-4.759,8.131c-1.898,2.252-3.987,4.172-6.293,5.755c-2.295,1.588-4.471,3.171-6.516,4.759
-      c-2.045,1.583-3.862,3.394-5.445,5.439c-1.588,2.04-2.589,4.601-2.991,7.664v5.831H140.6v-6.908
-      c0.305-4.395,1.153-8.072,2.529-11.036c1.382-2.964,2.991-5.499,4.83-7.598c1.844-2.089,3.786-3.911,5.836-5.445
-      c2.04-1.539,3.927-3.073,5.673-4.591c1.73-1.545,3.144-3.225,4.221-5.069c1.071-1.833,1.556-4.15,1.452-6.908
-      c0-4.705-1.148-8.18-3.454-10.427c-2.295-2.257-5.493-3.378-9.589-3.378c-2.758,0-5.134,0.533-7.131,1.605
-      s-3.628,2.513-4.911,4.302c-1.278,1.795-2.225,3.894-2.834,6.288c-0.615,2.415-0.919,4.982-0.919,7.756h-22.55
-      C113.85,127.785,114.791,122.732,116.586,118.12z M162.536,183.938v23.616h-24.09v-23.616H162.536z"/>
+                        <g>
+                          <g>
+                            <path style="fill:#010002;" d="M151.483,302.967C67.956,302.967,0,235.017,0,151.483S67.956,0,151.483,0 s151.483,67.956,151.483,151.483S235.017,302.967,151.483,302.967z M151.483,24.416c-70.066,0-127.067,57.001-127.067,127.067 s57.001,127.067,127.067,127.067s127.067-57.001,127.067-127.067S221.555,24.416,151.483,24.416z"/>
+                          </g>
+                          <g>
+                            <g>
+                              <path style="fill:#010002;" d="M116.586,118.12c1.795-4.607,4.297-8.588,7.511-11.961c3.225-3.389,7.114-6.016,11.667-7.898
+            c4.547-1.904,9.633-2.845,15.262-2.845c7.261,0,13.32,0.995,18.183,2.997c4.857,1.996,8.768,4.482,11.738,7.441
+            c2.964,2.97,5.091,6.168,6.369,9.584c1.273,3.432,1.915,6.636,1.915,9.595c0,4.901-0.642,8.947-1.915,12.118
+            c-1.278,3.171-2.866,5.88-4.759,8.131c-1.898,2.252-3.987,4.172-6.293,5.755c-2.295,1.588-4.471,3.171-6.516,4.759
+            c-2.045,1.583-3.862,3.394-5.445,5.439c-1.588,2.04-2.589,4.601-2.991,7.664v5.831H140.6v-6.908
+            c0.305-4.395,1.153-8.072,2.529-11.036c1.382-2.964,2.991-5.499,4.83-7.598c1.844-2.089,3.786-3.911,5.836-5.445
+            c2.04-1.539,3.927-3.073,5.673-4.591c1.73-1.545,3.144-3.225,4.221-5.069c1.071-1.833,1.556-4.15,1.452-6.908
+            c0-4.705-1.148-8.18-3.454-10.427c-2.295-2.257-5.493-3.378-9.589-3.378c-2.758,0-5.134,0.533-7.131,1.605
+            s-3.628,2.513-4.911,4.302c-1.278,1.795-2.225,3.894-2.834,6.288c-0.615,2.415-0.919,4.982-0.919,7.756h-22.55
+            C113.85,127.785,114.791,122.732,116.586,118.12z M162.536,183.938v23.616h-24.09v-23.616H162.536z"/>
+                            </g>
+                          </g>
+                        </g>
                       </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
-              </button>
-              <!-- pop up content -->
-              <div class="alert alert-light alert-dismissible fade show popup" id="popup" role="alert">
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" id="close-popup" onclick="closePopup()"></button>
-                <h4 class="alert-heading mt-5">How To Play</h4>
-                <p>Guess the Wordle in 6 tries.</p>
-                <ul>
-                  <li>
-                    <p>Each guess must be a valid 5-letter word.</p>
-                  </li>
-                  <li>
-                    <p>The color of the tiles will change to show how close tour guess was to the word</p>
-                  </li>
-                </ul>
-                <hr>
-                <p class="mb-0">A new puzzle is released daily at midnight.</p>      
-              </div>
-              
+                    </svg>
+                </button>
+                <!-- pop up content -->
+                <div class="alert alert-light alert-dismissible fade show popup" id="popup" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" id="close-popup" onclick="closePopup()"></button>
+                    <h4 class="alert-heading mt-5">How To Play</h4>
+                    <p>Guess the Wordle in 6 tries.</p>
+                    <ul>
+                        <li>
+                            <p>Each guess must be a valid 5-letter word.</p>
+                        </li>
+                        <li>
+                          <p>The color of the tiles will change to show how close tour guess was to the word</p>
+                        </li>
+                      </ul>
+                      <p><strong>Examples</strong></p>
+                    <div class="example-row">
+                        <div class="row row-cols-5 g-2 letter-grid content-positioning">
+                            <div class="col">
+                                <div class="p-3 inactive-cell-border correct-cell">R</div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 inactive-cell-border">I</div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 inactive-cell-border">G</div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 inactive-cell-border">H</div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 inactive-cell-border">T</div>
+                            </div>
+                        </div> 
+                        <p class="mt-3 ms-2"><strong>R</strong> is in the word and in the correct spot.</p>   
+                    </div>
+                    
+                    <div class="example-row">
+                        <div class="row row-cols-5 g-2 letter-grid content-positioning">
+                            <div class="col">
+                                <div class="p-3 inactive-cell-border">C</div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 inactive-cell-border">L</div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 inactive-cell-border">O</div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 inactive-cell-border correct-letter">S</div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 inactive-cell-border">E</div>
+                            </div>
+                        </div> 
+                        <p class="mt-3 ms-2"><strong>S</strong> is in the word but in the wrong spot.</p>   
+                    </div>
+                 
+                    <div class="example-row">
+                        <div class="row row-cols-5 g-2 letter-grid content-positioning">
+                            <div class="col">
+                                <div class="p-3 inactive-cell-border">W</div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 inactive-cell-border">R</div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 inactive-cell-border wrong-cell">O</div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 inactive-cell-border">N</div>
+                            </div>
+                            <div class="col">
+                                <div class="p-3 inactive-cell-border">G</div>
+                            </div>
+                        </div>  
+                        <p class="mt-3 ms-2"><strong>O</strong> is not in the word in any spot.</p>  
+                    </div>
+                    
+                </div>         
             </div>
-            
         </nav>
     </header>
 
@@ -75,95 +141,97 @@
         <div class="container-fluid text-center">
           
             <div class="row row-cols-5 g-2 letter-grid content-positioning">
+            
                 <div class="col">
-                    <div class="p-3 border"></div>
-                </div>
-                <div class="col">
-                    <div class="p-3 border"></div>
-                </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
-                </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
-                </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
-                </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
-                </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
-                </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
-                </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
-                </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
-                </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
-                </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
-                </div><div class="col">
-                    <div class="p-3 border"></div>
-                </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
-                </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
-                </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
-                </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
+                    <div class="p-3 inactive-cell-border" id="cell1"></div>
                 </div>
                 <div class="col">
-                    <div class="p-3 border"></div>
+                    <div class="p-3 inactive-cell-border" id="cell2"></div>
                 </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell3"></div>
                 </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell4"></div>
                 </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell5"></div>
                 </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell6"></div>
                 </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell7"></div>
                 </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell8"></div>
                 </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell9"></div>
                 </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell10"></div>
                 </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell11"></div>
                 </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell12"></div>
                 </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell13"></div>
                 </div>
-              <div class="col">
-                    <div class="p-3 border"></div>
-              </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell14"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell15"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell16"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell17"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell18"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell19"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell20"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell21"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell22"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell23"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell24"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell25"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell26"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell27"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell28"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell29"></div>
+                </div>
+                <div class="col">
+                    <div class="p-3 inactive-cell-border" id="cell30"></div>
+                </div>
           </div>
             
         </div>
@@ -174,49 +242,49 @@
           <!-- <div class="justify-content-center">
             <input id="tbInput" type="text" />
           </div> -->
-        
-        <div class="virtual-keyboard mt-5" id="VirtualKey">
-          <div class="first-row mb-1">
-          <input class="key" id="btnQ" type="button" value="Q" onclick="input(this);" />
-          <input class="key" id="btnW" type="button" value="W" onclick="input(this);" />
-          <input class="key" id="btnE" type="button" value="E" onclick="input(this);" />
-          <input class="key" id="btnR" type="button" value="R" onclick="input(this);" />
-          <input class="key" id="btnT" type="button" value="T" onclick="input(this);" />
-          <input class="key" id="btnY" type="button" value="Y" onclick="input(this);" />
-          <input class="key" id="btnU" type="button" value="U" onclick="input(this);" />
-          <input class="key" id="btnI" type="button" value="I" onclick="input(this);" />
-          <input class="key" id="btnO" type="button" value="O" onclick="input(this);" />
-          <input class="key" id="btnP" type="button" value="P" onclick="input(this);" />
-          </div>
-          <div class="second-row mb-1">
-          <input class="key" id="btnA" type="button" value="A" onclick="input(this);" />
-          <input class="key" id="btnS" type="button" value="S" onclick="input(this);" />
-          <input class="key" id="btnD" type="button" value="D" onclick="input(this);" />
-          <input class="key" id="btnF" type="button" value="F" onclick="input(this);" />
-          <input class="key" id="btnG" type="button" value="G" onclick="input(this);" />
-          <input class="key" id="btnH" type="button" value="H" onclick="input(this);" />
-          <input class="key" id="btnJ" type="button" value="J" onclick="input(this);" />
-          <input class="key" id="btnK" type="button" value="K" onclick="input(this);" />
-          <input class="key" id="btnL" type="button" value="L" onclick="input(this);" />
-          </div>
-          <div class="third-row">
-          <input class="key" id="btnZ" type="button" value="Z" onclick="input(this);" />
-          <input class="key" id="btnX" type="button" value="X" onclick="input(this);" />
-          <input class="key" id="btnC" type="button" value="C" onclick="input(this);" />
-          <input class="key" id="btnV" type="button" value="V" onclick="input(this);" />
-          <input class="key" id="btnB" type="button" value="B" onclick="input(this);" />
-          <input class="key" id="btnN" type="button" value="N" onclick="input(this);" />
-          <input class="key" id="btnM" type="button" value="M" onclick="input(this);" />
 
-<!-- can't add svg for backspace, modify into button? -->
-          <!-- <svg fill="#000000" height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 44.18 44.18" xml:space="preserve">
-            <g>
-	            <path d="M10.625,5.09L0,22.09l10.625,17H44.18v-34H10.625z M42.18,37.09H11.734l-9.375-15l9.375-15H42.18V37.09z"/>
-	            <polygon points="18.887,30.797 26.18,23.504 33.473,30.797 34.887,29.383 27.594,22.09 34.887,14.797 33.473,13.383 26.18,20.676 18.887,13.383 17.473,14.797 24.766,22.09 17.473,29.383 	"/>
-            </g>
-          </svg> -->
-          <input class="delete-key" id="btnDel" type="button" value="Delete" onclick="del();" />
-          </div>
+
+        <!--TESTING NEW BUTTON CODE-->
+        <div id="virtual-keyboard">
+        <div class="keyboard-container">
+            <div>
+                <button class="key" btn-primary id="Q">Q</button>
+                <button class="key" btn-primary id="W">W</button>
+                <button class="key" btn-primary id="E">E</button>
+                <button class="key" btn-primary id="R">R</button>
+                <button class="key" btn-primary id="T">T</button>
+                <button class="key" btn-primary id="Y">Y</button>
+                <button class="key" btn-primary id="U">U</button>
+                <button class="key" btn-primary id="I">I</button>
+                <button class="key" btn-primary id="O">O</button>
+                <button class="key" btn-primary id="P">P</button>
+        </div>
+        <div class="second-row">
+            <!-- <div class="second-row"> -->
+                <button class="key" btn-primary id="A">A</button>
+                <button class="key" btn-primary id="S">S</button>
+                <button class="key" btn-primary id="D">D</button>
+                <button class="key" btn-primary id="F">F</button>
+                <button class="key" btn-primary id="G">G</button>
+                <button class="key" btn-primary id="H">H</button>
+                <button class="key" btn-primary id="J">J</button>
+                <button class="key" btn-primary id="K">K</button>
+                <button class="key" btn-primary id="L">L</button>
+        </div>
+        <div class="third-row">
+            <!-- <div class="third-row"> -->
+            <!-- <button class="key" btn-primary id="enter">ENTER</button> -->
+            <button class="key" btn-primary id="Z">Z</button>
+            <button class="key" btn-primary id="X">X</button>
+            <button class="key" btn-primary id="C">C</button>
+            <button class="key" btn-primary id="V">V</button>
+            <button class="key" btn-primary id="B">B</button>
+            <button class="key" btn-primary id="N">N</button>
+            <button class="key" btn-primary id="M">M</button>
+            <button class="delete key" btn-primary id="backspace">BACKSPACE</button>
+    </div>
+</div>
+        </div>
           
         </div>
       </div>
@@ -234,4 +302,3 @@
 </body>
 
 </html>
-
