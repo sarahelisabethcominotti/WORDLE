@@ -1,3 +1,9 @@
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 100%
+}
+
+/* HEADER CSS */
 h1 {
     font-weight: bolder;
     text-align: center;
@@ -7,11 +13,66 @@ h1 {
     /* look up font lesson to add little lines to the top and bottom of letters */
 }
 
-/* body{
-    font-family: 'Ubuntu+Mono'
+.question-mark {
+    border: none;
+    background-color: #ffffff;
+    margin-left: auto;
+}
+
+/* POP-UP CSS */
+.popup {
+    display: none;
+    position: absolute;
+    top: 60px;
+    width: 450px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index:1;
+   
+    .example-row {
+        transform: scale(0.7);
+        text-align: center;
+        p {
+            text-align:left;
+            font-size: 20px
+        }
+    }
+}
+
+
+
+/* KEYBOARD CSS */
+/* .virtual-keyboard {
+    width: 100%;
 } */
 
+.keyboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* transform: scale(1.5); */
+    position: relative;
+    top: 450px; left: 0px;
+}
 
+
+
+.key {
+    height: 60px;
+    width: 60px;
+    border: none;
+    background-color: #d4d6da;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-weight: bolder;
+    font-size: 20px;
+    /* transform: scale(2); */
+}
+
+.delete {
+    width: 150px
+}
+
+/* GRID CSS */
 
 .inactive-cell-border {
     border: #d3d6da 1px solid
@@ -22,9 +83,9 @@ h1 {
     border: #000000 2px solid
 }
 
-.correct-cell {
+.wrong-cell {
     color: #ffffff;
-    background-color: #62d362
+    background-color: #a2a5af
 }
 
 .correct-letter {
@@ -33,15 +94,9 @@ h1 {
 
 }
 
-.wrong-cell {
+.correct-cell {
     color: #ffffff;
-    background-color: #D3D6DA
-}
-
-.question-mark {
-    border: none;
-    background-color: #ffffff;
-    margin-left: auto;
+    background-color: #62d362
 }
 
 .content-positioning {
@@ -62,92 +117,12 @@ h1 {
 
 }
 
+.col div {
+    font-size: 25px;
+}
+
 @font-face {
     font-family: "Ubuntu Mono";
     src: url("../downloads/UbuntuMono-Regular.ttf")
 }
 
-/* KEYBOARD CSS */
-.virtual-keyboard {
-    width: 100%;
-}
-
-.keyboard-container {
-    margin-top: 3%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transform: scale(2);
-    position: relative;
-    top: 450px; left: 0px;
-    
-}
-
-.keyboard-container button{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: #D3D6DA;
-    border: 0;
-    border-radius: 3px;
-    height: 30px;
-
-
-}
-
-
-.second-row {
-    margin-top: 0.4%;
-    padding-left: 1opx;
-    align-items: center;
-    border-radius: 25px;
-    touch-action: manipulation;
-    
-}
-
-.second-row button{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: #D3D6DA;
-    border-radius: 3px;
-}
-
-.third-row {
-    margin-top: 0.4%;
-    display: flex;
-} 
-
-.third-row button{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: #D3D6DA;
-    margin: 2px;
-    border-radius: 3px;
-    
-}
-
-
-    .btn-primary {
-        width: 400px;
-    
-    }
-
-    .delete-key {
-        width: 105px
-    }
-
-    .key, .delete-key {
-        height: 60px;
-        border: none;
-        border-radius: 5px;
-        font-weight: bolder;
-        background-color: #d4d6da;
-
-    }
-
-
-/* POP-UP CSS */
-.popup {
-    display: none;
-    position: absolute;
-    top: 60px;
-    width: 450px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    z-index:1;
-}
