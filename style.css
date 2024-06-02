@@ -41,6 +41,21 @@ h1 {
     }
 }
 
+/* GAMOVER POPUP */
+
+.game-over {
+    display: none
+}
+
+.game-over-button  {
+        height: 50px;
+        width: 120px;
+        border: none;
+        background-color: #d4d6da;
+        border-radius: 6px;
+        margin-top: 5px;
+        font-size: 20px;
+    }
 
 
 /* KEYBOARD CSS */
