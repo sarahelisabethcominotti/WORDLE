@@ -3,7 +3,7 @@ import { checkArrays } from "./checkWord.js";
 
 const word = await fetchWord();
 const wordArray = word.toUpperCase().split("");
-console.log(wordArray);
+// console.log(wordArray);
 
 // POP UP elements
 var openPopup = document.getElementById("open-popup");
@@ -22,7 +22,7 @@ keys.forEach((key) => {
   key.addEventListener("click", () => {
     const cell = document.getElementById(`cell${cellIndex}`);
 
-    if (key.classList.contains("delete")) {
+    if (key.classList.contains("delete") && cellIndex % 5 !== 1  ) {
       if (cellIndex) {
         cellIndex--;
         const deleteLetter = document.getElementById(`cell${cellIndex}`);
@@ -35,7 +35,7 @@ keys.forEach((key) => {
       return;
     }
 
-    if (cell) {
+    if (cell && !key.classList.contains("delete")) {
       cell.textContent = key.textContent.toUpperCase();
       cell.classList.add("active-cell-border");
       firstRow.push(cell.textContent);
